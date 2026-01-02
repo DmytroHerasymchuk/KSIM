@@ -4,7 +4,7 @@
 
 <br>
 
-### Варіант 3, Модель поширення захворювання у людській популяції.:
+### Варіант 3, Модель поширення захворювання у людській популяції:
 [Virus](https://www.netlogoweb.org/launch#https://www.netlogoweb.org/assets/modelslib/Sample%20Models/Biology/Virus.nlogo)
 
 <br>
