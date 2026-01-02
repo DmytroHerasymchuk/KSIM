@@ -80,13 +80,14 @@ end
 
 **Додано можливість змінювати початкову кількість хворих людей.** 
 
-Змінено процедуру *setup-turtles*. Раніше на початку кожної симуляції обирались 10 людей, які будуть інфіковані. Тепер за кількість інфікованих людей на початку відповідає глобальна змінна *%infected-start* - це якийсь відсоток від всього населення. Її значення визначається відповідним слайдером.
+Змінено процедуру *setup-turtles*. Раніше на початку кожної симуляції обирались 10 людей, які будуть інфіковані. Тепер за кількість інфікованих людей на початку відповідає глобальна змінна *%infected-start* - це якийсь відсоток від всього населення. Її значення визначається відповідним слайдером. Також було додано рівень соціальної активності, який приймає значення від 0.5 до 2.0, теперь від природи всі будуть рухатись з різною активністю.
 <pre>
   to setup-turtles
   create-turtles number-people
     [ setxy random-xcor random-ycor
       set age random lifespan
       set sick-time 0
+      set activity-level random-float 1.5 + 0.5  ;; від 0.5 до 2.0
       set remaining-immunity 0
       set size 1.5  ;; easier to see
       get-healthy ]
@@ -110,12 +111,12 @@ end
   ifelse any? red-turtles and not sick? and random-float 100 < attentiveness [
     face one-of red-turtles
     rt 180  ; Turn around
-    fd 1  
+    fd activity-level  
   ]  [
     ; If there are no red turtles nearby, move randomly
     rt random 100
     lt random 100
-    fd 1
+    fd activity-level
   ]
 end
 </pre>
